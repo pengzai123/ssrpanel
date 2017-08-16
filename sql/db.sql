@@ -40,8 +40,8 @@ CREATE TABLE `ss_node` (
   `compatible` tinyint(4) DEFAULT '0' COMMENT '兼容SS',
   `sort` int(3) NOT NULL DEFAULT '0' COMMENT '排序值，值越大越靠前显示',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态：0-维护、1-正常',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `created_at` DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='节点信息表';
 
@@ -56,8 +56,8 @@ CREATE TABLE `ss_node_info` (
   `uptime` float NOT NULL COMMENT '更新时间',
   `load` varchar(32) NOT NULL COMMENT '负载',
   `log_time` int(11) NOT NULL COMMENT '记录时间',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `created_at` DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='节点负载信息';
 
@@ -71,8 +71,8 @@ CREATE TABLE `ss_node_online_log` (
   `node_id` int(11) NOT NULL COMMENT '节点ID',
   `online_user` int(11) NOT NULL COMMENT '在线用户数',
   `log_time` int(11) NOT NULL COMMENT '记录时间',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `created_at` DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='节点在线信息';
 
@@ -138,8 +138,8 @@ CREATE TABLE `user_traffic_log` (
   `rate` float NOT NULL COMMENT '流量比例',
   `traffic` varchar(32) NOT NULL COMMENT '产生流量',
   `log_time` int(11) NOT NULL COMMENT '记录时间',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `created_at` DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
